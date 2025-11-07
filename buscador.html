@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <title>Buscador - DEPTEC</title>
+  <link rel="stylesheet" href="styles-buscador.css">
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <div class="nav-left">
+      <div class="logo">
+        <img src="logDEP02.jpg" alt="DEPTEC Logo">
+      </div>
+      <h2>Buscador</h2>
+    </div>
+    <div class="nav-right">
+      <button class="btn black">
+          <i class="fa-solid fa-right-from-bracket"></i>
+          Volver
+      </button>
+    </div>
+  </header>
+
+  <!-- CONTENIDO -->
+  <main class="main-layout">
+    <section class="panel">
+      <!-- Barra de búsqueda -->
+      <div class="search-bar">
+        <input type="text" placeholder="Escribe tu búsqueda...">
+        <button class="btn brown">
+          <i class="fa-solid fa-magnifying-glass"></i> Buscar
+        </button>
+      </div>
+
+      <!-- Filtros -->
+      <div class="filters">
+        <div class="input-group">
+          <label>Modulo</label>
+          <select>
+            <option value="">Seleccionar modulo</option>
+            <option value="mod1">Modulo 1</option>
+            <option value="mod2">Modulo 2</option>
+          </select>
+        </div>
+
+        <div class="input-group">
+          <label>Categoria</label>
+          <select>
+            <option value="">Seleccionar categoria</option>
+            <option value="cat1">Categoria 1</option>
+            <option value="cat2">Categoria 2</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Área de resultados -->
+      <div class="table-area">
+        <!-- Aquí se mostrarán los resultados -->
+      </div>
+    </section>
+  </main>
+
+</body>
+</html>
