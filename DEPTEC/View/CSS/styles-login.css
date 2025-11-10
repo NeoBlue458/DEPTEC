@@ -1,0 +1,162 @@
+* {
+  box-sizing: border-box;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  background: url("fonimg.jpg") no-repeat center center fixed;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* CONTENEDOR */
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+/* CUADRO PRINCIPAL */
+.login-box {
+  background-color: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(5px);
+  border-radius: 25px;
+  padding: 40px 60px;
+  width: 700px;
+  text-align: center;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+/* LOGO SUPERIOR */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.logo img {
+  height: 60px;
+    border-radius: 12px;
+}
+
+/* TITULO */
+h2 {
+  font-size: 28px;
+  color: #1a1a1a;
+  margin-bottom: 10px;
+}
+
+h2 span {
+  font-weight: bold;
+}
+
+/* IMAGEN DE USUARIO */
+.user-img img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 3px solid #5a361c;
+  margin: 15px 0;
+}
+
+/* CAMPOS */
+.input-group {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+.input-group label {
+  font-weight: bold;
+  margin-bottom: 8px;
+  color: #1a1a1a;
+}
+
+.input-group input {
+  border: none;
+  border-radius: 25px;
+  padding: 12px 20px;
+  font-size: 15px;
+  background-color: #fff;
+  box-shadow: 0 0 5px rgba(0,0,0,0.1);
+}
+
+/* OPCIONES Y BOTÓN */
+.options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+}
+
+/* SELECT PERSONALIZADO */
+select {
+  flex: 1;
+  padding: 12px 40px 12px 20px; /* más espacio a la derecha */
+  border-radius: 25px;
+  border: none;
+  background-color: #1a1a1a;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  text-align: center;
+  appearance: none;              /* oculta flecha nativa */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  position: relative;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24'%3E%3Cpath fill='%23fff' d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 15px center; /* flecha visible centrada */
+  background-size: 14px;
+}
+
+select:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px #7b4b28;
+}
+
+/* BOTÓN INGRESAR */
+.btn {
+  flex: 1;
+  border: none;
+  border-radius: 25px;
+  padding: 12px 20px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn.brown {
+  background-color: #7b4b28;
+  color: white;
+}
+
+.btn.brown:hover {
+  background-color: #5a361c;
+}
+
+/* RESPONSIVO */
+@media (max-width: 768px) {
+  .login-box {
+    width: 90%;
+    padding: 30px;
+  }
+
+  .options {
+    flex-direction: column;
+  }
+
+  select, .btn {
+    width: 100%;
+  }
+}

@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Recibos - DEPTEC</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="../View/CSS/styles-recibos.css">
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <div class="nav-left">
+      <div class="logo">
+        <img src="../Images/logDEP02.jpg" alt="DEPTEC Logo">
+      </div>
+      <h2>Recibos</h2>
+    </div>
+
+    <div class="nav-right">
+      <div class="search-bar">
+        <input type="text" placeholder="Buscar recibo..." aria-label="Buscar recibo">
+        <button class="btn brown" aria-label="Buscar"><i class="fa-solid fa-magnifying-glass"></i></button>
+      </div>
+
+      <button class="btn black" onclick="window.location.href='historial.html'">
+        <i class="fa-regular fa-clock"></i> Historial
+      </button>
+
+      <button class="btn brown"><i class="fa-solid fa-list" aria-hidden="true"></i> Categoría</button>
+
+      <button class="btn black" onclick="window.location.href='../index.php'">
+        <i class="fa-solid fa-right-from-bracket"></i> Volver
+      </button>
+    </div>
+  </header>
+
+  <!-- CONTENIDO -->
+  <main class="main-layout">
+    <section class="panel">
+      <div class="table-area">
+        <!-- Aquí irá la tabla de recibos -->
+      </div>
+
+      <div class="actions">
+        <button class="btn brown" onclick="abrirModal('modalAgregar')">
+          <i class="fa-solid fa-plus"></i> Agregar
+        </button>
+
+        <button class="btn brown" onclick="abrirModal('modalEditar')">
+          <i class="fa-solid fa-pen-to-square"></i> Editar
+        </button>
+
+        <button class="btn brown">
+          <i class="fa-solid fa-trash"></i> Eliminar
+        </button>
+
+      </div>
+    </section>
+
+    <!-- IMAGEN DERECHA -->
+    <aside class="side-image"></aside>
+  </main>
+
+  <!-- MODAL AGREGAR -->
+  <div id="modalAgregar" class="modal" role="dialog" aria-modal="true">
+    <div class="modal-content">
+      <h3>Agregar Recibo</h3>
+
+      <form id="formAgregar">
+        <div class="inputs">
+          <!-- Nombre Alquila -->
+          <div class="input-group">
+            <label>Nombre Alquila</label>
+            <div class="input-with-button">
+              <input type="text" id="alqAgregar" placeholder="Ej. Luis - Departamento 1" required>
+              <button type="button" class="mini-btn" onclick="abrirModal('modalSelector')">
+                <i class="fa-solid fa-caret-down"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- Precio y Teléfono -->
+          <div class="input-row">
+            <div class="input-group small">
+              <label>Precio</label>
+              <input type="number" id="precioAgregar" placeholder="Ej. 1000" required>
+            </div>
+            <div class="input-group small">
+              <label>Teléfono</label>
+              <input type="tel" id="telefonoAgregar" placeholder="Ej. 1234567890" required>
+            </div>
+          </div>
+
+          <!-- Nombre y Apellidos -->
+          <div class="input-group">
+            <label>Nombre</label>
+            <input type="text" id="nombreAgregar" placeholder="Ej. Luis" required>
+          </div>
+          <div class="input-group">
+            <label>Apellido Paterno</label>
+            <input type="text" id="apPaternoAgregar" placeholder="Ej. Pérez" required>
+          </div>
+          <div class="input-group">
+            <label>Apellido Materno</label>
+            <input type="text" id="apMaternoAgregar" placeholder="Ej. Pereira" required>
+          </div>
+
+          <!-- Servicios -->
+          <div class="input-group">
+            <label>Servicios</label>
+            <textarea id="serviciosAgregar" placeholder="Ejemplo: Internet, agua, gas..." required></textarea>
+          </div>
+
+          <!-- Fecha -->
+          <div class="input-group">
+            <label>Fecha de Alquilamiento</label>
+            <input type="date" id="fechaAgregar" required>
+          </div>
+        </div>
+
+        <div class="modal-actions">
+          <button type="submit" class="btn brown"><i class="fa-solid fa-plus"></i> Agregar</button>
+          <button type="button" class="btn black" onclick="cerrarModal('modalAgregar')">
+            <i class="fa-solid fa-right-from-bracket"></i> Volver
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- MODAL EDITAR -->
+  <div id="modalEditar" class="modal" role="dialog" aria-modal="true">
+    <div class="modal-content">
+      <h3>Editar Recibo</h3>
+
+      <form id="formEditar">
+        <div class="inputs">
+          <!-- Nombre Alquila -->
+          <div class="input-group">
+            <label>Nombre Alquila</label>
+            <div class="input-with-button">
+              <input type="text" id="alqEditar" value="Luis - Departamento 1">
+              <button type="button" class="mini-btn" onclick="abrirModal('modalSelector')">
+                <i class="fa-solid fa-caret-down"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- Precio y Teléfono -->
+          <div class="input-row">
+            <div class="input-group small">
+              <label>Precio</label>
+              <input type="number" id="precioEditar" value="1000">
+            </div>
+            <div class="input-group small">
+              <label>Teléfono</label>
+              <input type="tel" id="telefonoEditar" value="1234567890">
+            </div>
+          </div>
+
+          <!-- Nombre y Apellidos -->
+          <div class="input-group">
+            <label>Nombre</label>
+            <input type="text" id="nombreEditar" value="Luis">
+          </div>
+          <div class="input-group">
+            <label>Apellido Paterno</label>
+            <input type="text" id="apPaternoEditar" value="Pérez">
+          </div>
+          <div class="input-group">
+            <label>Apellido Materno</label>
+            <input type="text" id="apMaternoEditar" value="Pereira">
+          </div>
+
+          <!-- Servicios -->
+          <div class="input-group">
+            <label>Servicios</label>
+            <textarea id="serviciosEditar">Internet, agua, gas</textarea>
+          </div>
+
+          <!-- Fecha -->
+          <div class="input-group">
+            <label>Fecha de Alquilamiento</label>
+            <input type="date" id="fechaEditar" value="2025-10-27">
+          </div>
+        </div>
+
+        <div class="modal-actions">
+          <button type="submit" class="btn brown"><i class="fa-solid fa-bookmark"></i> Guardar</button>
+          <button type="button" class="btn black" onclick="cerrarModal('modalEditar')">
+            <i class="fa-solid fa-right-from-bracket"></i> Volver
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- MODAL SELECTOR DE ALQUILA -->
+  <div id="modalSelector" class="modal right" role="dialog" aria-modal="true">
+    <div class="modal-content small">
+      <h3>Selector de Alquila</h3>
+
+      <p class="modal-subtitle">Selecciona el Alquilamiento a Cobrar</p>
+
+    <div class="search-bar modal-search">
+      <input type="text" placeholder="Buscar aqluila..." aria-label="Buscar alquila">
+      <button class="btn brown" aria-label="Buscar"><i class="fa-solid fa-magnifying-glass"></i></button>
+    </div>
+
+      <div class="table-area">
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Nombre</th>
+              <th>Departamento</th>
+              <th>Acción</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>Luis Pérez</td>
+              <td>Depto 1</td>
+              <td><button class="btn brown">Seleccionar</button></td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>María Gómez</td>
+              <td>Depto 2</td>
+              <td><button class="btn brown">Seleccionar</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="modal-actions">
+        <button type="button" class="btn black" onclick="cerrarModal('modalSelector')">
+          <i class="fa-solid fa-right-from-bracket"></i> Volver
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCRIPT -->
+  <script>
+    function abrirModal(id) {
+      const modal = document.getElementById(id);
+      modal.style.display = 'flex';
+      setTimeout(() => modal.classList.add('visible'), 10);
+    }
+
+    function cerrarModal(id) {
+      const modal = document.getElementById(id);
+      modal.classList.remove('visible');
+      setTimeout(() => modal.style.display = 'none', 300);
+    }
+  </script>
+</body>
+</html>

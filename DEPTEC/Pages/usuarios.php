@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Usuarios - DEPTEC</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="../View/CSS/styles-usuario.css">
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <div class="nav-left">
+      <div class="logo">
+        <img src="../Images/logDEP02.jpg" alt="DEPTEC Logo">
+      </div>
+      <h2>Usuarios</h2>
+    </div>
+
+    <div class="nav-right">
+      <div class="search-bar">
+        <input type="text" placeholder="Buscar usuario..." aria-label="Buscar usuario">
+        <button class="btn brown" aria-label="Buscar"><i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i></button>
+      </div>
+      <button class="btn brown"><i class="fa-solid fa-list" aria-hidden="true"></i> Categoría</button>
+      <button class="btn black" onclick="window.location.href='../index.php'">
+        <i class="fa-solid fa-right-from-bracket" aria-hidden="true"></i> Volver
+      </button>
+    </div>
+  </header>
+
+  <!-- CONTENIDO -->
+  <main class="main-layout">
+    <section class="panel">
+
+      <!-- Tabla -->
+      <div class="table-area"></div>
+
+      <!-- Botones inferiores -->
+      <div class="actions">
+        <button class="btn brown" onclick="abrirModal('modalEditarUsuario')"><i class="fa-solid fa-pen-to-square"></i> Editar</button>
+        <button class="btn brown"><i class="fa-solid fa-trash"></i> Eliminar</button>
+        <button class="btn brown" onclick="abrirModal('modalAgregarUsuario')"><i class="fa-solid fa-plus"></i> Agregar</button>
+      </div>
+    </section>
+
+    <!-- IMAGEN DERECHA -->
+    <aside class="side-image"></aside>
+  </main>
+
+  <!-- MODAL AGREGAR USUARIO -->
+  <div id="modalAgregarUsuario" class="modal" role="dialog" aria-modal="true">
+    <div class="modal-content">
+      <h3>Agregar Usuario</h3>
+      <form id="formAgregarUsuario">
+        <div class="inputs">
+          <div class="input-group">
+            <label for="tipoAgregarUsuario">Tipo de usuario</label>
+            <select id="tipoAgregarUsuario">
+              <option>Administrador</option>
+              <option>Asistente</option>
+            </select>
+          </div>
+          <div class="input-group">
+            <label for="nombreAgregarUsuario">Nombre</label>
+            <input type="text" id="nombreAgregarUsuario" placeholder="Ej. Juan Pérez" required>
+          </div>
+          <div class="input-group">
+            <label for="passwordAgregarUsuario">Contraseña</label>
+            <input type="password" id="passwordAgregarUsuario" placeholder="••••••••" required>
+          </div>
+        </div>
+        <div class="modal-actions">
+          <button type="submit" class="btn brown"><i class="fa-solid fa-plus"></i> Agregar</button>
+          <button type="button" class="btn black" onclick="cerrarModal('modalAgregarUsuario')"><i class="fa-solid fa-right-from-bracket"></i> Volver</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- MODAL EDITAR USUARIO -->
+  <div id="modalEditarUsuario" class="modal" role="dialog" aria-modal="true">
+    <div class="modal-content">
+      <h3>Editar Usuario</h3>
+      <form id="formEditarUsuario">
+        <div class="inputs">
+          <div class="input-group">
+            <label for="tipoEditarUsuario">Tipo de usuario</label>
+            <select id="tipoEditarUsuario">
+              <option>Administrador</option>
+              <option>Asistente</option>
+            </select>
+          </div>
+          <div class="input-group">
+            <label for="nombreEditarUsuario">Nombre</label>
+            <input type="text" id="nombreEditarUsuario" value="Juan Pérez" required>
+          </div>
+          <div class="input-group">
+            <label for="passwordEditarUsuario">Contraseña</label>
+            <input type="password" id="passwordEditarUsuario" value="password123" required>
+          </div>
+        </div>
+        <div class="modal-actions">
+          <button type="submit" class="btn brown"><i class="fa-solid fa-bookmark"></i> Guardar</button>
+          <button type="button" class="btn black" onclick="cerrarModal('modalEditarUsuario')"><i class="fa-solid fa-right-from-bracket"></i> Volver</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- SCRIPT MODALES -->
+  <script>
+    function abrirModal(id) {
+      const modal = document.getElementById(id);
+      modal.style.display = 'flex';
+      setTimeout(() => modal.classList.add('visible'), 10);
+    }
+
+    function cerrarModal(id) {
+      const modal = document.getElementById(id);
+      modal.classList.remove('visible');
+      setTimeout(() => modal.style.display = 'none', 300);
+    }
+  </script>
+
+</body>
+</html>

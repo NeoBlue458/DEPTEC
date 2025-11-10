@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alquila - DEPTEC</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="../View/CSS/styles-alquila.css">
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <div class="nav-left">
+      <div class="logo">
+        <img src="../Images/logDEP02.jpg" alt="DEPTEC Logo">
+      </div>
+      <h2>Alquila</h2>
+    </div>
+
+    <div class="nav-right">
+      <div class="search-bar">
+        <input type="text" placeholder="Buscar alquiler..." aria-label="Buscar alquiler">
+        <button class="btn brown" aria-label="Buscar"><i class="fa-solid fa-magnifying-glass"></i></button>
+      </div>
+
+      <button class="btn brown"><i class="fa-solid fa-list" aria-hidden="true"></i> Categoría</button>
+
+      <button class="btn black" onclick="window.location.href='../index.php'">
+        <i class="fa-solid fa-right-from-bracket"></i> Volver
+      </button>
+    </div>
+  </header>
+
+  <!-- CONTENIDO -->
+  <main class="main-layout">
+    <section class="panel">
+
+      <div class="table-area">
+        <!-- Aquí irá la tabla de alquileres -->
+      </div>
+
+      <div class="actions">
+        <button class="btn brown" onclick="abrirModal('modalAgregar')">
+          <i class="fa-solid fa-plus"></i> Agregar
+        </button>
+        <button class="btn brown" onclick="abrirModal('modalEditar')">
+          <i class="fa-solid fa-pen-to-square"></i> Editar
+        </button>
+        <button class="btn brown">
+          <i class="fa-solid fa-trash"></i> Eliminar
+        </button>
+      </div>
+    </section>
+
+    <aside class="side-image"></aside>
+  </main>
+
+  <!-- MODAL AGREGAR -->
+  <div id="modalAgregar" class="modal" role="dialog" aria-modal="true">
+    <div class="modal-content">
+      <h3>Agregar Alquiler</h3>
+
+      <form id="formAgregar">
+        <div class="inputs">
+
+          <div class="input-group">
+            <label>Nombre Alquila</label>
+            <input type="text" id="alqAgregar" placeholder="Ej. Luis - Departamento 1" required>
+          </div>
+
+          <div class="input-row">
+            <div class="input-group small">
+              <label>Nombre Departamento</label>
+              <div class="input-with-button">
+                <input type="text" id="depAgregar" placeholder="Departamento 1" required>
+                <button type="button" class="mini-btn" onclick="abrirModalDerecha('modalSelectorDep')">
+                  <i class="fa-solid fa-caret-down"></i>
+                </button>
+              </div>
+            </div>
+            <div class="input-group small">
+              <label>Precio</label>
+              <input type="number" id="precioAgregar" placeholder="Ej. 1000" required>
+            </div>
+          </div>
+
+          <div class="input-group">
+            <label>Nombre</label>
+            <div class="input-with-button">
+              <input type="text" id="nombreAgregar" placeholder="Ej. Luis" required>
+            <button type="button" class="mini-btn" onclick="abrirModalInq()">
+              <i class="fa-solid fa-caret-down"></i>
+            </button>
+            </div>
+          </div>
+
+          <div class="input-row">
+            <div class="input-group small">
+              <label>Apellido Paterno</label>
+              <input type="text" id="apPaternoAgregar" placeholder="Ej. Perez" required>
+            </div>
+            <div class="input-group small">
+              <label>Apellido Materno</label>
+              <input type="text" id="apMaternoAgregar" placeholder="Ej. Pereira" required>
+            </div>
+          </div>
+
+          <div class="input-group">
+            <label>Servicios</label>
+            <div class="checkbox-group">
+              <label><input type="checkbox" id="internetAgregar"> Internet</label>
+              <label><input type="checkbox" id="limpiezaAgregar"> Limpieza</label>
+              <label><input type="checkbox" id="gasAgregar"> Gas</label>
+            </div>
+          </div>
+
+          <div class="input-group">
+            <label>Fecha Alquila</label>
+            <input type="date" id="fechaAgregar" required>
+          </div>
+        </div>
+
+        <div class="modal-actions">
+          <button type="submit" class="btn brown"><i class="fa-solid fa-plus"></i> Agregar</button>
+          <button type="button" class="btn black" onclick="cerrarModal('modalAgregar')">
+            <i class="fa-solid fa-right-from-bracket"></i> Volver
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- MODAL EDITAR -->
+  <div id="modalEditar" class="modal" role="dialog" aria-modal="true">
+    <div class="modal-content">
+      <h3>Editar Alquiler</h3>
+
+      <form id="formEditar">
+        <div class="inputs">
+          <div class="input-group">
+            <label>Nombre Alquila</label>
+            <input type="text" id="alqEditar" value="Luis - Departamento 1">
+          </div>
+
+          <div class="input-row">
+            <div class="input-group small">
+              <label>Nombre Departamento</label>
+              <div class="input-with-button">
+                <input type="text" id="depEditar" value="Departamento 1">
+                <button type="button" class="mini-btn" onclick="abrirModalDerecha('modalSelectorDep')">
+                  <i class="fa-solid fa-caret-down"></i>
+                </button>
+              </div>
+            </div>
+            <div class="input-group small">
+              <label>Precio</label>
+              <input type="number" id="precioEditar" value="1000">
+            </div>
+          </div>
+
+          <div class="input-group">
+            <label>Nombre</label>
+            <div class="input-with-button">
+              <input type="text" id="nombreEditar" value="Luis">
+            <button type="button" class="mini-btn" onclick="abrirModalInq()">
+              <i class="fa-solid fa-caret-down"></i>
+            </button>
+            </div>
+          </div>
+
+          <div class="input-row">
+            <div class="input-group small">
+              <label>Apellido Paterno</label>
+              <input type="text" id="apPaternoEditar" value="Perez">
+            </div>
+            <div class="input-group small">
+              <label>Apellido Materno</label>
+              <input type="text" id="apMaternoEditar" value="Pereira">
+            </div>
+          </div>
+
+          <div class="input-group">
+            <label>Servicios</label>
+            <div class="checkbox-group">
+              <label><input type="checkbox" checked> Internet</label>
+              <label><input type="checkbox"> Limpieza</label>
+              <label><input type="checkbox"> Gas</label>
+            </div>
+          </div>
+
+          <div class="input-group">
+            <label>Fecha Alquila</label>
+            <input type="date" id="fechaEditar" value="2025-10-27">
+          </div>
+        </div>
+
+        <div class="modal-actions">
+          <button type="submit" class="btn brown"><i class="fa-solid fa-bookmark"></i> Guardar</button>
+          <button type="button" class="btn black" onclick="cerrarModal('modalEditar')">
+            <i class="fa-solid fa-right-from-bracket"></i> Volver
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- MODAL SELECTOR DE DEPARTAMENTO -->
+  <div id="modalSelectorDep" class="modal modal-right" role="dialog" aria-modal="true">
+    <div class="modal-content">
+      <h3>Selecciona el Departamento</h3>
+
+    <div class="search-bar modal-search">
+      <input type="text" placeholder="Buscar departamento..." aria-label="Buscar departamento">
+      <button class="btn brown" aria-label="Buscar"><i class="fa-solid fa-magnifying-glass"></i></button>
+    </div>
+
+      <div class="table-area">
+        <table>
+          <thead>
+            <tr>
+              <th>Nombre</th>
+              <th>Estado</th>
+              <th>Precio</th>
+              <th>Acción</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Departamento 1</td>
+              <td>Disponible</td>
+              <td>$1000</td>
+              <td><button class="btn brown" onclick="seleccionarDepartamento('Departamento 1')">Seleccionar</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="modal-actions">
+        <button class="btn black" onclick="cerrarModal('modalSelectorDep')">
+          <i class="fa-solid fa-right-from-bracket"></i> Cerrar
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL SELECTOR DE INQUILINO -->
+<div id="modalSelectorInq" class="modal modal-right" role="dialog" aria-modal="true">
+  <div class="modal-content">
+    <h3>Selecciona el Inquilino</h3>
+
+    <div class="search-bar modal-search">
+      <input type="text" placeholder="Buscar inquilino..."  aria-label="Buscar inquilino">
+      <button class="btn brown" aria-label="Buscar"><i class="fa-solid fa-magnifying-glass"></i></button>
+    </div>
+
+    <!-- TABLA DE INQUILINOS -->
+    <div class="table-area">
+      <table>
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Apellido Paterno</th>
+            <th>Apellido Materno</th>
+            <th>Acción</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Luis</td>
+            <td>Perez</td>
+            <td>Pereira</td>
+            <td>
+              <button class="btn brown" onclick="seleccionarInquilino('Luis', 'Perez', 'Pereira')">Seleccionar</button>
+            </td>
+          </tr>
+          <!-- Agrega más filas según tus datos -->
+        </tbody>
+      </table>
+    </div>
+
+    <div class="modal-actions">
+      <button class="btn black" onclick="cerrarModal('modalSelectorInq')">
+        <i class="fa-solid fa-right-from-bracket"></i> Cerrar
+      </button>
+    </div>
+  </div>
+</div>
+
+  <!-- SCRIPT -->
+  <script>
+    function abrirModal(id) {
+      const modal = document.getElementById(id);
+      modal.style.display = 'flex';
+      setTimeout(() => modal.classList.add('visible'), 10);
+    }
+
+    function cerrarModal(id) {
+      const modal = document.getElementById(id);
+      modal.classList.remove('visible');
+      setTimeout(() => modal.style.display = 'none', 300);
+    }
+
+    // Modal lateral derecho
+    function abrirModalDerecha(id) {
+      const modal = document.getElementById(id);
+      modal.style.display = 'flex';
+      modal.classList.add('visible', 'right');
+    }
+
+    function seleccionarDepartamento(nombre) {
+      document.getElementById('depAgregar').value = nombre;
+      cerrarModal('modalSelectorDep');
+    }
+
+      // Abrir modal lateral derecho del inquilino
+  function abrirModalInq() {
+    const modal = document.getElementById('modalSelectorInq');
+    modal.style.display = 'flex';
+    setTimeout(() => modal.classList.add('visible', 'right'), 10);
+  }
+
+  </script>
+
+</body>
+</html>
