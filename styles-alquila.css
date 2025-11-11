@@ -146,7 +146,7 @@ body {
 .side-image {
   width: 25%;
   height: 89vh;
-  background: url("img06.png") center/cover no-repeat;
+  background: url("Images/img06.png") center/cover no-repeat;
   position: sticky;
   top: 0;
 }

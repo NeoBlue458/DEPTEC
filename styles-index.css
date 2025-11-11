@@ -152,7 +152,7 @@ body {
 /* IMAGEN IZQUIERDA */
 .side-image {
   width: 40%;
-  background-image: url("img01.png");
+  background-image: url("Images/img01.png");
   background-size: cover;
   background-position: center;
 }

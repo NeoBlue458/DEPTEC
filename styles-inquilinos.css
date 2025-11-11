@@ -135,7 +135,7 @@ body {
 /* IMAGEN DERECHA */
 .side-image {
   width: 25%;
-  background-image: url("img03.jpg");
+  background-image: url("Images/img03.jpg");
   background-size: cover;
   background-position: center;
 }
