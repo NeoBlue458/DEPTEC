@@ -1,5 +1,5 @@
 <?php
-include 'clases/c_departamentos.php'; // Incluimos la clase CRUD
+include '../clases/c_departamentos.php'; // Incluimos la clase CRUD
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // 1. Recolección de Datos
@@ -30,10 +30,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // 4. Redirección (como en el video [01:08:00] para evitar recargar)
     if ($result) {
         // Redirigir al archivo principal
-        header("Location: ../View/departamentos.php?status=success_add");
+        header("Location: ../Pages/departamentos.php?status=success_add");
         exit();
     } else {
-        header("Location: ../View/departamentos.php?status=error_add");
+        header("Location: ../Pages/departamentos.php?status=error_add");
         exit();
     }
 }

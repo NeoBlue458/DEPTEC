@@ -1,5 +1,5 @@
 <?php
-include 'clases/c_departamentos.php'; 
+include '../clases/c_departamentos.php'; 
 
 header('Content-Type: application/json');
 
